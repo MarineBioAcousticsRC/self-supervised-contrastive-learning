@@ -1,0 +1,30 @@
+{
+  "emb_dir": "/path/to/data",
+  "algorithm": "kmeans",
+  "cluster_params": {
+    "k": 60,
+    "random_state": 42
+  },
+  "label_config": {
+    "use_csv_labels": true,
+    "filter_noise": true,
+    "ignore_test_files": true,
+    "only_call": false,
+    "max_segment_duration": 0.0,
+    "min_label_count": 0,
+    "max_samples_per_label": 0
+  },
+  "n_h5_files": 563,
+  "metrics": {
+    "n_points": 184603.0,
+    "n_clusters_including_noise": 60.0,
+    "n_noise": 0.0,
+    "silhouette": 0.13845224678516388,
+    "calinski_harabasz": 79.71932047752784,
+    "davies_bouldin": 1.9726347019259565,
+    "ri_vs_class_name": 0.9668648541116239,
+    "nmi_vs_class_name": 0.5452354799614446,
+    "ami_vs_class_name": 0.5436245182692636,
+    "ari_vs_class_name": 0.202502171269806
+  }
+}

@@ -1,0 +1,81 @@
+class_name,aligned_frames,pretty,scientific_name,english_name,species,class_selection,vocal_type,random_state,draw
+Turmer_call,3849,Turmer (call),Turdus merula,Common Blackbird,Turmer,random,call,42,1
+Picpic_call,804,Picpic (call),Pica pica,Eurasian Magpie,Picpic,random,call,42,1
+Siteur_call,614,Siteur (call),Sitta europaea,Eurasian Nuthatch,Siteur,random,call,42,1
+Parmaj_call,1189,Parmaj (call),Parus major,Great Tit,Parmaj,random,call,42,1
+Sylmel_call,2198,Sylmel (call),Sylvia melanocephala,Mediterranean Warbler,Sylmel,random,call,42,1
+Loxcur_call,1385,Loxcur (call),Loxia curvirostra,Red Crossbill,Loxcur,random,call,42,1
+Carcar_call,1038,Carcar (call),Carduelis carduelis,European Goldfinch,Carcar,random,call,42,1
+Phycol_call,178,Phycol (call),Phylloscopus collybita,Common Chifchaff,Phycol,random,call,42,1
+Galcri_call,3026,Galcri (call),Galerida cristata,Crested Lark,Galcri,random,call,43,2
+Lusmeg_call,1486,Lusmeg (call),Luscinia megarhynchos,Common Nightingale,Lusmeg,random,call,43,2
+Hirrus_call,257,Hirrus (call),Hirundo rustica,Barn Swallow,Hirrus,random,call,43,2
+Stuvul_call,583,Stuvul (call),Sturnus vulgaris,Common Starling,Stuvul,random,call,43,2
+Parcae_call,1770,Parcae (call),Cyanistes caeruleus,Blue Tit,Parcae,random,call,43,2
+Aegcau_call,1103,Aegcau (call),Aegithalos caudatus,Long-tailed Tit,Aegcau,random,call,43,2
+Parate_call,776,Parate (call),Periparus ater,Coal Tit,Parate,random,call,43,2
+Butbut_call,1454,Butbut (call),Buteo buteo,Common Buzzard,Butbut,random,call,43,2
+Carcar_call,1038,Carcar (call),Carduelis carduelis,European Goldfinch,Carcar,random,call,44,3
+Poepal_call,1059,Poepal (call),Poecile palustris,Marsh Tit,Poepal,random,call,44,3
+Erirub_call,455,Erirub (call),Erithacus rubecula,European Robin,Erirub,random,call,44,3
+Parcae_call,1770,Parcae (call),Cyanistes caeruleus,Blue Tit,Parcae,random,call,44,3
+Turmer_call,3849,Turmer (call),Turdus merula,Common Blackbird,Turmer,random,call,44,3
+Lopcri_call,1659,Lopcri (call),Lophophanes cristatus,European Crested Tit,Lopcri,random,call,44,3
+Cerbra_call,1022,Cerbra (call),Certhia brachydactyla,Short-toed Treecreeper,Cerbra,random,call,44,3
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,44,3
+Regign_call,1087,Regign (call),Regulus ignicapillus,Common Firecrest,Regign,random,call,45,4
+Oriori_call,1217,Oriori (call),Oriolus oriolus,Eurasian Golden Oriole,Oriori,random,call,45,4
+Siteur_call,614,Siteur (call),Sitta europaea,Eurasian Nuthatch,Siteur,random,call,45,4
+Poepal_call,1059,Poepal (call),Poecile palustris,Marsh Tit,Poepal,random,call,45,4
+Picpic_call,804,Picpic (call),Pica pica,Eurasian Magpie,Picpic,random,call,45,4
+Petpet_call,2003,Petpet (call),Petronia petronia,Rock Sparrow,Petpet,random,call,45,4
+Musstr_call,639,Musstr (call),Muscicapa striata,Spotted Flycatcher,Musstr,random,call,45,4
+Sylmel_call,2198,Sylmel (call),Sylvia melanocephala,Mediterranean Warbler,Sylmel,random,call,45,4
+Fricoe_call,446,Fricoe (call),Fringilla coelebs,Common Chaffinch,Fricoe,random,call,46,5
+Denmaj_call,181,Denmaj (call),Dendrocopos major,Great Spotted Woodpecker,Denmaj,random,call,46,5
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,46,5
+Carcan_call,1121,Carcan (call),Linaria cannabina,Common Linnet,Carcan,random,call,46,5
+Lusmeg_call,1486,Lusmeg (call),Luscinia megarhynchos,Common Nightingale,Lusmeg,random,call,46,5
+Oriori_call,1217,Oriori (call),Oriolus oriolus,Eurasian Golden Oriole,Oriori,random,call,46,5
+Erirub_call,455,Erirub (call),Erithacus rubecula,European Robin,Erirub,random,call,46,5
+Regign_call,1087,Regign (call),Regulus ignicapillus,Common Firecrest,Regign,random,call,46,5
+Loxcur_call,1385,Loxcur (call),Loxia curvirostra,Red Crossbill,Loxcur,random,call,47,6
+Motcin_call,1004,Motcin (call),Motacilla cinerea,Grey Wagtail,Motcin,random,call,47,6
+Turphi_call,124,Turphi (call),Turdus philomelos,Song Thrush,Turphi,random,call,47,6
+Phycol_call,178,Phycol (call),Phylloscopus collybita,Common Chifchaff,Phycol,random,call,47,6
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,47,6
+Musstr_call,639,Musstr (call),Muscicapa striata,Spotted Flycatcher,Musstr,random,call,47,6
+Cerbra_call,1022,Cerbra (call),Certhia brachydactyla,Short-toed Treecreeper,Cerbra,random,call,47,6
+Carcar_call,1038,Carcar (call),Carduelis carduelis,European Goldfinch,Carcar,random,call,47,6
+Parcae_call,1770,Parcae (call),Cyanistes caeruleus,Blue Tit,Parcae,random,call,48,7
+Cerbra_call,1022,Cerbra (call),Certhia brachydactyla,Short-toed Treecreeper,Cerbra,random,call,48,7
+Gargla_call,1529,Gargla (call),Garrulus glandarius,Eurasian Jay,Gargla,random,call,48,7
+Lusmeg_call,1486,Lusmeg (call),Luscinia megarhynchos,Common Nightingale,Lusmeg,random,call,48,7
+Butbut_call,1454,Butbut (call),Buteo buteo,Common Buzzard,Butbut,random,call,48,7
+Oriori_call,1217,Oriori (call),Oriolus oriolus,Eurasian Golden Oriole,Oriori,random,call,48,7
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,48,7
+Picpic_call,804,Picpic (call),Pica pica,Eurasian Magpie,Picpic,random,call,48,7
+Lopcri_call,1659,Lopcri (call),Lophophanes cristatus,European Crested Tit,Lopcri,random,call,49,8
+Oriori_call,1217,Oriori (call),Oriolus oriolus,Eurasian Golden Oriole,Oriori,random,call,49,8
+Pyrpyr_call,630,Pyrpyr (call),Pyrrhula pyrrhula,Eurasian Bullfinch,Pyrpyr,random,call,49,8
+Galthe_call,589,Galthe (call),Galerida theklae,Thekla Lark,Galthe,random,call,49,8
+Butbut_call,1454,Butbut (call),Buteo buteo,Common Buzzard,Butbut,random,call,49,8
+Parate_call,776,Parate (call),Periparus ater,Coal Tit,Parate,random,call,49,8
+Sylmel_call,2198,Sylmel (call),Sylvia melanocephala,Mediterranean Warbler,Sylmel,random,call,49,8
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,49,8
+Regign_call,1087,Regign (call),Regulus ignicapillus,Common Firecrest,Regign,random,call,50,9
+Parate_call,776,Parate (call),Periparus ater,Coal Tit,Parate,random,call,50,9
+Petpet_call,2003,Petpet (call),Petronia petronia,Rock Sparrow,Petpet,random,call,50,9
+Pelgra_call,1551,Pelgra (call),Pelophylax kl. grafi,Graf's Hybrid Frog,Pelgra,random,call,50,9
+Pyrpyr_call,630,Pyrpyr (call),Pyrrhula pyrrhula,Eurasian Bullfinch,Pyrpyr,random,call,50,9
+Turmer_call,3849,Turmer (call),Turdus merula,Common Blackbird,Turmer,random,call,50,9
+Phycol_call,178,Phycol (call),Phylloscopus collybita,Common Chifchaff,Phycol,random,call,50,9
+Erirub_call,455,Erirub (call),Erithacus rubecula,European Robin,Erirub,random,call,50,9
+Galcri_call,3026,Galcri (call),Galerida cristata,Crested Lark,Galcri,random,call,51,10
+Gargla_call,1529,Gargla (call),Garrulus glandarius,Eurasian Jay,Gargla,random,call,51,10
+Siteur_call,614,Siteur (call),Sitta europaea,Eurasian Nuthatch,Siteur,random,call,51,10
+Sylmel_call,2198,Sylmel (call),Sylvia melanocephala,Mediterranean Warbler,Sylmel,random,call,51,10
+Serser_call,646,Serser (call),Serinus serinus,European Serin,Serser,random,call,51,10
+Turphi_call,124,Turphi (call),Turdus philomelos,Song Thrush,Turphi,random,call,51,10
+Erirub_call,455,Erirub (call),Erithacus rubecula,European Robin,Erirub,random,call,51,10
+Galthe_call,589,Galthe (call),Galerida theklae,Thekla Lark,Galthe,random,call,51,10

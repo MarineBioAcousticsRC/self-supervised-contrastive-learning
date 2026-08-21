@@ -1,0 +1,118 @@
+# @package _group_
+# NIPS4Bplus supervised finetuning (Fairseq wav2vec_ccas_finetune).
+# Initialize from a pretrained animal2vec checkpoint via model.w2v_path.
+# Label vocab is listed under task.unique_labels below.
+
+common:
+  fp16: true
+  log_format: json
+  log_interval: 50
+  tensorboard_logdir: tb
+  min_loss_scale: 1e-6
+  fp16_no_flatten_grads: true
+  fp16_init_scale: 1
+
+checkpoint:
+  save_dir: ???
+  save_interval_updates: 1000
+  keep_interval_updates: 10
+  save_interval: 999999
+  keep_last_epochs: 10
+  best_checkpoint_metric: metrics/finetune/f1
+
+task:
+  _name: audio_ccas
+  data: ???
+  unique_labels: "['Empty', 'Aegcau_call', 'Alaarv_song', 'Anttri_song', 'Butbut_call', 'Carcan_call', 'Carcan_song', 'Carcar_call', 'Carcar_song', 'Cerbra_call', 'Cerbra_song', 'Cetcet_song', 'Chlchl_call', 'Cicatr_song', 'Cicorn_song', 'Cisjun_song', 'Colpal_song', 'Corcor_call', 'Denmaj_call', 'Denmaj_drum', 'Embcir_call', 'Embcir_song', 'Erirub_call', 'Erirub_song', 'Fricoe_call', 'Fricoe_song', 'Galcri_call', 'Galcri_song', 'Galthe_call', 'Galthe_song', 'Gargla_call', 'Hirrus_call', 'Jyntor_song', 'Lopcri_call', 'Loxcur_call', 'Lularb_song', 'Lusmeg_call', 'Lusmeg_song', 'Lyrple_song', 'Motcin_call', 'Musstr_call', 'Oriori_call', 'Oriori_song', 'Parate_call', 'Parate_song', 'Parcae_call', 'Parcae_song', 'Parmaj_call', 'Parmaj_song', 'Pasdom_call', 'Pelgra_call', 'Petpet_call', 'Petpet_song', 'Phofem_song', 'Phycol_call', 'Phycol_song', 'Picpic_call', 'Plaaff_song', 'Plasab_song', 'Poepal_call', 'Poepal_song', 'Prumod_song', 'Ptehey_song', 'Pyrpyr_call', 'Regign_call', 'Regign_song', 'Serser_call', 'Serser_song', 'Siteur_call', 'Siteur_song', 'Strdec_song', 'Strtur_song', 'Stuvul_call', 'Sylatr_call', 'Sylatr_song', 'Sylcan_call', 'Sylcan_song', 'Sylmel_call', 'Sylmel_song', 'Sylund_call', 'Sylund_song', 'Tetpyg_song', 'Tibtom_song', 'Trotro_song', 'Turmer_call', 'Turmer_song', 'Turphi_call', 'Turphi_song', 'Unknown']"
+  conv_feature_layers: '[(127, 63, 1)] +[(512, 10, 5)] + [(512, 3, 4)] + [(512, 3, 3)] + [(512, 3, 2)] + [(512, 3, 1)] + [(512, 2, 1)] * 2'
+  min_sample_size: 1
+  sample_rate: 24000
+  normalize: true
+  with_labels: true
+  label_source: csv
+  use_vocal_masks: false
+  label_csv_format: auto
+  label_index_rate_hz: "44100"
+  include_empty_unknown_vocal: true
+  skip_empty_vocal: true
+  label_csv_dir: null
+  verbose_tensorboard_logging: false
+  enable_padding: false
+  min_label_size: 0
+
+dataset:
+  num_workers: 8
+  max_tokens: 9408000
+  skip_invalid_size_inputs_valid_test: true
+  validate_interval: 999999
+  validate_interval_updates: 2000
+  required_batch_size_multiple: 1
+  disable_validation: true
+  train_subset: train_0_few_0
+  valid_subset: valid_0
+
+distributed_training:
+  distributed_world_size: 1
+  ddp_backend: legacy_ddp
+
+criterion:
+  _name: finetunecriterion
+  label_smoothing: 0.01
+  report_accuracy: true
+  segmentation_metrics: false
+  use_focal_loss: true
+  metric_threshold: 0.175
+  method: "avg"
+  sigma_s: 0.1
+  maxfilt_s: 0.1
+  max_duration_s: 0.5
+  lowP: 0.125
+
+optimization:
+  update_freq: [ 1 ]
+  max_update: 5000
+  clip_norm: 1
+
+optimizer:
+  _name: composite
+  dynamic_groups: true
+  groups:
+    default:
+      lr_float: 1.0e-4
+      optimizer:
+        _name: adam
+        adam_betas: [ 0.9, 0.98 ]
+        adam_eps: 1e-06
+        weight_decay: 0.01
+      lr_scheduler:
+        _name: cosine
+        warmup_updates: 1000
+
+lr_scheduler: pass_through
+
+model:
+  _name: wav2vec_ccas_finetune
+  w2v_path: ???
+  freeze_finetune_updates: 3000
+  feature_grad_mult: 0.0
+  apply_mask: true
+  average_top_k_layers: 12
+  mask_prob: 1.1
+  mask_length: 2
+  mask_channel_prob: 0
+  mask_channel_length: 64
+  dropout: 0.1
+  dropout_input: 0.0
+  activation_dropout: 0.1
+  attention_dropout: 0.2
+  final_dropout: 0.0
+  layerdrop: 0.1
+  drop_path: 0.0
+  target_mixup: true
+  source_mixup: 0.5
+  mixup_prob: 1.0
+  same_mixup: true
+  mixing_window_length: 0.05
+  gain_mode: "A_weighting"
+  load_pretrain_weights: false
+

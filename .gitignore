@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Weights and embeddings (too large for this repository)
+*.pt
+*.h5
+*.hdf5
+
+# OS / editor
+.DS_Store
+.mplconfig/

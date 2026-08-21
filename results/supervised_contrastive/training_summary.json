@@ -1,0 +1,1202 @@
+{
+  "args": {
+    "pretrain_ckpt": "/path/to/data",
+    "manifest_dir": "/path/to/data",
+    "train_subset": "train_0",
+    "label_csv_dir": "/path/to/data",
+    "label_csv_format": "auto",
+    "label_index_rate_hz": "44100",
+    "exclude_classes": "empty,unknown,silence,unk",
+    "save_dir": "/path/to/data",
+    "batch_size": 8,
+    "max_updates": 5000,
+    "lr": 1e-05,
+    "warmup_updates": 500,
+    "margin": 0.2,
+    "noise_negative_prob": 0.5,
+    "average_top_k_layers": 12,
+    "save_interval_updates": 1000,
+    "log_interval": 50,
+    "seed": 42,
+    "num_workers": 4,
+    "device": "cuda",
+    "normalize": true,
+    "freeze_feature_extractor": false,
+    "class_aware": true
+  },
+  "sampling_config": {
+    "noise_prob": 0.5,
+    "same_clip_vocal_negative": false,
+    "class_aware": true,
+    "class_aware_positives": "same_span",
+    "class_aware_negatives": "diff_class_other_file"
+  },
+  "runtime": {
+    "total_wall_seconds": 5305.552244499326,
+    "total_wall_hours": 1.4737645123609238,
+    "mean_sec_per_update": 1.0418857963591814,
+    "median_sec_per_update": 0.9897355129942298,
+    "num_updates": 5000
+  },
+  "sampling_stats": {
+    "anchors": 9155539,
+    "pos_same_class": 0,
+    "pos_same_span_fallback": 9155539,
+    "neg_diff_class": 9128282,
+    "neg_same_class": 27257,
+    "neg_non_vocal": 0,
+    "neg_by_source": {
+      "diff_class_vocal": 9155539
+    },
+    "pos_same_class_rate": 0.0,
+    "neg_diff_class_rate": 0.9970228951020798,
+    "neg_same_class_rate": 0.0029771048979202646,
+    "neg_non_vocal_rate": 0.0,
+    "per_class_sampling": {
+      "cetcet_song": {
+        "anchors": 206003,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 206003,
+        "neg_diff_class": 205952,
+        "neg_same_class": 51,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 206003
+        },
+        "neg_diff_class_rate": 0.9997524307898429,
+        "neg_same_class_rate": 0.0002475692101571336
+      },
+      "serser_call": {
+        "anchors": 29018,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 29018,
+        "neg_diff_class": 29009,
+        "neg_same_class": 9,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 29018
+        },
+        "neg_diff_class_rate": 0.9996898476807499,
+        "neg_same_class_rate": 0.0003101523192501206
+      },
+      "sylund_song": {
+        "anchors": 140869,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 140869,
+        "neg_diff_class": 140869,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 140869
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "sylcan_call": {
+        "anchors": 31388,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 31388,
+        "neg_diff_class": 31388,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 31388
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "petpet_song": {
+        "anchors": 68059,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 68059,
+        "neg_diff_class": 67956,
+        "neg_same_class": 103,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 68059
+        },
+        "neg_diff_class_rate": 0.9984866072084515,
+        "neg_same_class_rate": 0.0015133927915485094
+      },
+      "carcan_song": {
+        "anchors": 93285,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 93285,
+        "neg_diff_class": 93285,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 93285
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "sylmel_call": {
+        "anchors": 103491,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 103491,
+        "neg_diff_class": 103491,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 103491
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "sylmel_song": {
+        "anchors": 125016,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 125016,
+        "neg_diff_class": 125016,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 125016
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "sylcan_song": {
+        "anchors": 191667,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 191667,
+        "neg_diff_class": 191653,
+        "neg_same_class": 14,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 191667
+        },
+        "neg_diff_class_rate": 0.9999269566487711,
+        "neg_same_class_rate": 7.304335122895438e-05
+      },
+      "turmer_call": {
+        "anchors": 162500,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 162500,
+        "neg_diff_class": 162153,
+        "neg_same_class": 347,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 162500
+        },
+        "neg_diff_class_rate": 0.9978646153846153,
+        "neg_same_class_rate": 0.0021353846153846154
+      },
+      "lusmeg_song": {
+        "anchors": 136765,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 136765,
+        "neg_diff_class": 136617,
+        "neg_same_class": 148,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 136765
+        },
+        "neg_diff_class_rate": 0.998917851789566,
+        "neg_same_class_rate": 0.001082148210433956
+      },
+      "sylatr_call": {
+        "anchors": 40727,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 40727,
+        "neg_diff_class": 40720,
+        "neg_same_class": 7,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 40727
+        },
+        "neg_diff_class_rate": 0.9998281238490436,
+        "neg_same_class_rate": 0.00017187615095636802
+      },
+      "petpet_call": {
+        "anchors": 63205,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 63205,
+        "neg_diff_class": 63205,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 63205
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "cerbra_call": {
+        "anchors": 52565,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 52565,
+        "neg_diff_class": 52548,
+        "neg_same_class": 17,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 52565
+        },
+        "neg_diff_class_rate": 0.9996765908874726,
+        "neg_same_class_rate": 0.0003234091125273471
+      },
+      "sylatr_song": {
+        "anchors": 53081,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 53081,
+        "neg_diff_class": 53062,
+        "neg_same_class": 19,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 53081
+        },
+        "neg_diff_class_rate": 0.9996420564797197,
+        "neg_same_class_rate": 0.0003579435202803263
+      },
+      "parcae_song": {
+        "anchors": 69952,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 69952,
+        "neg_diff_class": 69871,
+        "neg_same_class": 81,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 69952
+        },
+        "neg_diff_class_rate": 0.9988420631290027,
+        "neg_same_class_rate": 0.0011579368709972553
+      },
+      "parmaj_song": {
+        "anchors": 89700,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 89700,
+        "neg_diff_class": 89579,
+        "neg_same_class": 121,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 89700
+        },
+        "neg_diff_class_rate": 0.9986510590858417,
+        "neg_same_class_rate": 0.0013489409141583056
+      },
+      "parate_song": {
+        "anchors": 142264,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 142264,
+        "neg_diff_class": 142011,
+        "neg_same_class": 253,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 142264
+        },
+        "neg_diff_class_rate": 0.9982216161502558,
+        "neg_same_class_rate": 0.0017783838497441376
+      },
+      "musstr_call": {
+        "anchors": 29369,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 29369,
+        "neg_diff_class": 29369,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 29369
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "embcir_song": {
+        "anchors": 90779,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 90779,
+        "neg_diff_class": 90747,
+        "neg_same_class": 32,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 90779
+        },
+        "neg_diff_class_rate": 0.9996474955661552,
+        "neg_same_class_rate": 0.000352504433844832
+      },
+      "galthe_song": {
+        "anchors": 156020,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 156020,
+        "neg_diff_class": 156020,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 156020
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "turphi_song": {
+        "anchors": 175461,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 175461,
+        "neg_diff_class": 174871,
+        "neg_same_class": 590,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 175461
+        },
+        "neg_diff_class_rate": 0.9966374294002656,
+        "neg_same_class_rate": 0.003362570599734414
+      },
+      "erirub_song": {
+        "anchors": 209041,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 209041,
+        "neg_diff_class": 207885,
+        "neg_same_class": 1156,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 209041
+        },
+        "neg_diff_class_rate": 0.9944699843571356,
+        "neg_same_class_rate": 0.005530015642864318
+      },
+      "tetpyg_song": {
+        "anchors": 245715,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 245715,
+        "neg_diff_class": 244406,
+        "neg_same_class": 1309,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 245715
+        },
+        "neg_diff_class_rate": 0.9946726899049712,
+        "neg_same_class_rate": 0.005327310095028794
+      },
+      "parmaj_call": {
+        "anchors": 57386,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 57386,
+        "neg_diff_class": 57344,
+        "neg_same_class": 42,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 57386
+        },
+        "neg_diff_class_rate": 0.9992681141741888,
+        "neg_same_class_rate": 0.0007318858258111735
+      },
+      "lyrple_song": {
+        "anchors": 443106,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 443106,
+        "neg_diff_class": 437611,
+        "neg_same_class": 5495,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 443106
+        },
+        "neg_diff_class_rate": 0.9875989040996962,
+        "neg_same_class_rate": 0.012401095900303765
+      },
+      "plaaff_song": {
+        "anchors": 337454,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 337454,
+        "neg_diff_class": 336575,
+        "neg_same_class": 879,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 337454
+        },
+        "neg_diff_class_rate": 0.9973952005310354,
+        "neg_same_class_rate": 0.002604799468964659
+      },
+      "corcor_call": {
+        "anchors": 80530,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 80530,
+        "neg_diff_class": 80397,
+        "neg_same_class": 133,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 80530
+        },
+        "neg_diff_class_rate": 0.9983484415745685,
+        "neg_same_class_rate": 0.0016515584254315162
+      },
+      "prumod_song": {
+        "anchors": 164553,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 164553,
+        "neg_diff_class": 164410,
+        "neg_same_class": 143,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 164553
+        },
+        "neg_diff_class_rate": 0.99913097907665,
+        "neg_same_class_rate": 0.0008690209233499237
+      },
+      "carcar_song": {
+        "anchors": 135176,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 135176,
+        "neg_diff_class": 135161,
+        "neg_same_class": 15,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 135176
+        },
+        "neg_diff_class_rate": 0.9998890335562526,
+        "neg_same_class_rate": 0.00011096644374741079
+      },
+      "lularb_song": {
+        "anchors": 174292,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 174292,
+        "neg_diff_class": 174174,
+        "neg_same_class": 118,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 174292
+        },
+        "neg_diff_class_rate": 0.9993229752369587,
+        "neg_same_class_rate": 0.000677024763041333
+      },
+      "sylund_call": {
+        "anchors": 47298,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 47298,
+        "neg_diff_class": 47298,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 47298
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "oriori_song": {
+        "anchors": 83588,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 83588,
+        "neg_diff_class": 83552,
+        "neg_same_class": 36,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 83588
+        },
+        "neg_diff_class_rate": 0.9995693161697852,
+        "neg_same_class_rate": 0.0004306838302148634
+      },
+      "carcar_call": {
+        "anchors": 59151,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 59151,
+        "neg_diff_class": 59151,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 59151
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "oriori_call": {
+        "anchors": 81268,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 81268,
+        "neg_diff_class": 81244,
+        "neg_same_class": 24,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 81268
+        },
+        "neg_diff_class_rate": 0.9997046808091746,
+        "neg_same_class_rate": 0.00029531919082541715
+      },
+      "turmer_song": {
+        "anchors": 132277,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 132277,
+        "neg_diff_class": 132156,
+        "neg_same_class": 121,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 132277
+        },
+        "neg_diff_class_rate": 0.9990852529162288,
+        "neg_same_class_rate": 0.0009147470837711771
+      },
+      "gargla_call": {
+        "anchors": 48802,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 48802,
+        "neg_diff_class": 48789,
+        "neg_same_class": 13,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 48802
+        },
+        "neg_diff_class_rate": 0.9997336174746937,
+        "neg_same_class_rate": 0.0002663825253063399
+      },
+      "carcan_call": {
+        "anchors": 50765,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 50765,
+        "neg_diff_class": 50765,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 50765
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "pelgra_call": {
+        "anchors": 74719,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 74719,
+        "neg_diff_class": 74644,
+        "neg_same_class": 75,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 74719
+        },
+        "neg_diff_class_rate": 0.9989962392430306,
+        "neg_same_class_rate": 0.0010037607569694455
+      },
+      "ptehey_song": {
+        "anchors": 287273,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 287273,
+        "neg_diff_class": 285996,
+        "neg_same_class": 1277,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 287273
+        },
+        "neg_diff_class_rate": 0.9955547510556161,
+        "neg_same_class_rate": 0.004445248944383914
+      },
+      "galthe_call": {
+        "anchors": 34324,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 34324,
+        "neg_diff_class": 34324,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 34324
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "motcin_call": {
+        "anchors": 44089,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 44089,
+        "neg_diff_class": 44089,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 44089
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "cisjun_song": {
+        "anchors": 30817,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 30817,
+        "neg_diff_class": 30790,
+        "neg_same_class": 27,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 30817
+        },
+        "neg_diff_class_rate": 0.9991238602070286,
+        "neg_same_class_rate": 0.0008761397929714119
+      },
+      "picpic_call": {
+        "anchors": 42699,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 42699,
+        "neg_diff_class": 42665,
+        "neg_same_class": 34,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 42699
+        },
+        "neg_diff_class_rate": 0.9992037284245533,
+        "neg_same_class_rate": 0.0007962715754467318
+      },
+      "stuvul_call": {
+        "anchors": 28703,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 28703,
+        "neg_diff_class": 28700,
+        "neg_same_class": 3,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 28703
+        },
+        "neg_diff_class_rate": 0.999895481308574,
+        "neg_same_class_rate": 0.00010451869142598335
+      },
+      "colpal_song": {
+        "anchors": 66704,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 66704,
+        "neg_diff_class": 66574,
+        "neg_same_class": 130,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 66704
+        },
+        "neg_diff_class_rate": 0.9980510913888223,
+        "neg_same_class_rate": 0.0019489086111777404
+      },
+      "regign_call": {
+        "anchors": 45467,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 45467,
+        "neg_diff_class": 45419,
+        "neg_same_class": 48,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 45467
+        },
+        "neg_diff_class_rate": 0.9989442892647414,
+        "neg_same_class_rate": 0.0010557107352585392
+      },
+      "pyrpyr_call": {
+        "anchors": 16160,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 16160,
+        "neg_diff_class": 16157,
+        "neg_same_class": 3,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 16160
+        },
+        "neg_diff_class_rate": 0.9998143564356435,
+        "neg_same_class_rate": 0.00018564356435643565
+      },
+      "regign_song": {
+        "anchors": 126165,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 126165,
+        "neg_diff_class": 125927,
+        "neg_same_class": 238,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 126165
+        },
+        "neg_diff_class_rate": 0.9981135814211548,
+        "neg_same_class_rate": 0.0018864185788451632
+      },
+      "loxcur_call": {
+        "anchors": 62408,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 62408,
+        "neg_diff_class": 62393,
+        "neg_same_class": 15,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 62408
+        },
+        "neg_diff_class_rate": 0.9997596461992052,
+        "neg_same_class_rate": 0.0002403538007947699
+      },
+      "phycol_call": {
+        "anchors": 5280,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 5280,
+        "neg_diff_class": 5280,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 5280
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "plasab_song": {
+        "anchors": 373919,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 373919,
+        "neg_diff_class": 372428,
+        "neg_same_class": 1491,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 373919
+        },
+        "neg_diff_class_rate": 0.9960125053821817,
+        "neg_same_class_rate": 0.003987494617818298
+      },
+      "galcri_call": {
+        "anchors": 113976,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 113976,
+        "neg_diff_class": 113963,
+        "neg_same_class": 13,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 113976
+        },
+        "neg_diff_class_rate": 0.9998859408998385,
+        "neg_same_class_rate": 0.0001140591001614375
+      },
+      "phycol_song": {
+        "anchors": 111527,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 111527,
+        "neg_diff_class": 111464,
+        "neg_same_class": 63,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 111527
+        },
+        "neg_diff_class_rate": 0.9994351143669246,
+        "neg_same_class_rate": 0.0005648856330753987
+      },
+      "fricoe_call": {
+        "anchors": 21776,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 21776,
+        "neg_diff_class": 21776,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 21776
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "anttri_song": {
+        "anchors": 73966,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 73966,
+        "neg_diff_class": 73783,
+        "neg_same_class": 183,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 73966
+        },
+        "neg_diff_class_rate": 0.9975258902739096,
+        "neg_same_class_rate": 0.0024741097260903657
+      },
+      "strtur_song": {
+        "anchors": 131027,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 131027,
+        "neg_diff_class": 130967,
+        "neg_same_class": 60,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 131027
+        },
+        "neg_diff_class_rate": 0.9995420791134652,
+        "neg_same_class_rate": 0.0004579208865348363
+      },
+      "parcae_call": {
+        "anchors": 77085,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 77085,
+        "neg_diff_class": 77070,
+        "neg_same_class": 15,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 77085
+        },
+        "neg_diff_class_rate": 0.9998054096127651,
+        "neg_same_class_rate": 0.0001945903872348706
+      },
+      "pasdom_call": {
+        "anchors": 98456,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 98456,
+        "neg_diff_class": 98421,
+        "neg_same_class": 35,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 98456
+        },
+        "neg_diff_class_rate": 0.999644511253758,
+        "neg_same_class_rate": 0.0003554887462419761
+      },
+      "tibtom_song": {
+        "anchors": 289931,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 289931,
+        "neg_diff_class": 285386,
+        "neg_same_class": 4545,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 289931
+        },
+        "neg_diff_class_rate": 0.984323856365825,
+        "neg_same_class_rate": 0.01567614363417503
+      },
+      "embcir_call": {
+        "anchors": 30688,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 30688,
+        "neg_diff_class": 30674,
+        "neg_same_class": 14,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 30688
+        },
+        "neg_diff_class_rate": 0.9995437956204379,
+        "neg_same_class_rate": 0.0004562043795620438
+      },
+      "serser_song": {
+        "anchors": 317078,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 317078,
+        "neg_diff_class": 316333,
+        "neg_same_class": 745,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 317078
+        },
+        "neg_diff_class_rate": 0.9976504204012893,
+        "neg_same_class_rate": 0.0023495795987107273
+      },
+      "denmaj_drum": {
+        "anchors": 52556,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 52556,
+        "neg_diff_class": 52501,
+        "neg_same_class": 55,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 52556
+        },
+        "neg_diff_class_rate": 0.9989534972220108,
+        "neg_same_class_rate": 0.0010465027779891925
+      },
+      "cicorn_song": {
+        "anchors": 281043,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 281043,
+        "neg_diff_class": 280038,
+        "neg_same_class": 1005,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 281043
+        },
+        "neg_diff_class_rate": 0.9964240347562473,
+        "neg_same_class_rate": 0.0035759652437527354
+      },
+      "lusmeg_call": {
+        "anchors": 67911,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 67911,
+        "neg_diff_class": 67907,
+        "neg_same_class": 4,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 67911
+        },
+        "neg_diff_class_rate": 0.999941099380071,
+        "neg_same_class_rate": 5.8900619929024756e-05
+      },
+      "siteur_song": {
+        "anchors": 115136,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 115136,
+        "neg_diff_class": 114974,
+        "neg_same_class": 162,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 115136
+        },
+        "neg_diff_class_rate": 0.998592968315731,
+        "neg_same_class_rate": 0.0014070316842690383
+      },
+      "poepal_call": {
+        "anchors": 28890,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 28890,
+        "neg_diff_class": 28865,
+        "neg_same_class": 25,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 28890
+        },
+        "neg_diff_class_rate": 0.9991346486673589,
+        "neg_same_class_rate": 0.0008653513326410523
+      },
+      "alaarv_song": {
+        "anchors": 260099,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 260099,
+        "neg_diff_class": 260061,
+        "neg_same_class": 38,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 260099
+        },
+        "neg_diff_class_rate": 0.9998539017835516,
+        "neg_same_class_rate": 0.00014609821644835235
+      },
+      "butbut_call": {
+        "anchors": 62133,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 62133,
+        "neg_diff_class": 62051,
+        "neg_same_class": 82,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 62133
+        },
+        "neg_diff_class_rate": 0.9986802504305281,
+        "neg_same_class_rate": 0.0013197495694719393
+      },
+      "turphi_call": {
+        "anchors": 5689,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 5689,
+        "neg_diff_class": 5689,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 5689
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "fricoe_song": {
+        "anchors": 128858,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 128858,
+        "neg_diff_class": 128659,
+        "neg_same_class": 199,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 128858
+        },
+        "neg_diff_class_rate": 0.9984556643747381,
+        "neg_same_class_rate": 0.0015443356252619162
+      },
+      "cerbra_song": {
+        "anchors": 34666,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 34666,
+        "neg_diff_class": 34639,
+        "neg_same_class": 27,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 34666
+        },
+        "neg_diff_class_rate": 0.9992211388680552,
+        "neg_same_class_rate": 0.0007788611319448451
+      },
+      "denmaj_call": {
+        "anchors": 7627,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 7627,
+        "neg_diff_class": 7627,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 7627
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "chlchl_call": {
+        "anchors": 53855,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 53855,
+        "neg_diff_class": 53851,
+        "neg_same_class": 4,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 53855
+        },
+        "neg_diff_class_rate": 0.9999257264877913,
+        "neg_same_class_rate": 7.427351220870856e-05
+      },
+      "aegcau_call": {
+        "anchors": 59301,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 59301,
+        "neg_diff_class": 59298,
+        "neg_same_class": 3,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 59301
+        },
+        "neg_diff_class_rate": 0.9999494106338848,
+        "neg_same_class_rate": 5.0589366115242574e-05
+      },
+      "lopcri_call": {
+        "anchors": 51615,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 51615,
+        "neg_diff_class": 51610,
+        "neg_same_class": 5,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 51615
+        },
+        "neg_diff_class_rate": 0.999903128935387,
+        "neg_same_class_rate": 9.687106461300009e-05
+      },
+      "trotro_song": {
+        "anchors": 121356,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 121356,
+        "neg_diff_class": 121248,
+        "neg_same_class": 108,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 121356
+        },
+        "neg_diff_class_rate": 0.999110056363097,
+        "neg_same_class_rate": 0.0008899436369029962
+      },
+      "hirrus_call": {
+        "anchors": 11700,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 11700,
+        "neg_diff_class": 11697,
+        "neg_same_class": 3,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 11700
+        },
+        "neg_diff_class_rate": 0.9997435897435898,
+        "neg_same_class_rate": 0.0002564102564102564
+      },
+      "parate_call": {
+        "anchors": 25414,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 25414,
+        "neg_diff_class": 25404,
+        "neg_same_class": 10,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 25414
+        },
+        "neg_diff_class_rate": 0.9996065160934918,
+        "neg_same_class_rate": 0.0003934839065082238
+      },
+      "cicatr_song": {
+        "anchors": 304411,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 304411,
+        "neg_diff_class": 299381,
+        "neg_same_class": 5030,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 304411
+        },
+        "neg_diff_class_rate": 0.9834762869935711,
+        "neg_same_class_rate": 0.016523713006428808
+      },
+      "strdec_song": {
+        "anchors": 81815,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 81815,
+        "neg_diff_class": 81683,
+        "neg_same_class": 132,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 81815
+        },
+        "neg_diff_class_rate": 0.9983866039234859,
+        "neg_same_class_rate": 0.0016133960765140867
+      },
+      "erirub_call": {
+        "anchors": 20418,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 20418,
+        "neg_diff_class": 20418,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 20418
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "phofem_song": {
+        "anchors": 15709,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 15709,
+        "neg_diff_class": 15707,
+        "neg_same_class": 2,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 15709
+        },
+        "neg_diff_class_rate": 0.9998726844484054,
+        "neg_same_class_rate": 0.00012731555159462728
+      },
+      "galcri_song": {
+        "anchors": 73635,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 73635,
+        "neg_diff_class": 73635,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 73635
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "jyntor_song": {
+        "anchors": 115378,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 115378,
+        "neg_diff_class": 115311,
+        "neg_same_class": 67,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 115378
+        },
+        "neg_diff_class_rate": 0.999419300039869,
+        "neg_same_class_rate": 0.0005806999601310475
+      },
+      "poepal_song": {
+        "anchors": 32507,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 32507,
+        "neg_diff_class": 32501,
+        "neg_same_class": 6,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 32507
+        },
+        "neg_diff_class_rate": 0.9998154243701357,
+        "neg_same_class_rate": 0.0001845756298643369
+      },
+      "siteur_call": {
+        "anchors": 20930,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 20930,
+        "neg_diff_class": 20930,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 20930
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      },
+      "human": {
+        "anchors": 17064,
+        "pos_same_class": 0,
+        "pos_same_span_fallback": 17064,
+        "neg_diff_class": 17064,
+        "neg_same_class": 0,
+        "neg_non_vocal": 0,
+        "neg_by_source": {
+          "diff_class_vocal": 17064
+        },
+        "neg_diff_class_rate": 1.0,
+        "neg_same_class_rate": 0.0
+      }
+    }
+  }
+}

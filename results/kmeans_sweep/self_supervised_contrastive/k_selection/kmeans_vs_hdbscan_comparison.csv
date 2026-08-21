@@ -1,0 +1,5 @@
+method,kind,k_or_mcs,n_points,n_clusters,noise_frac,ARI,NMI,AMI,notes
+kmeans_elbow_inertia,unsupervised,60,184603,60,0.0,0.2387201898000036,0.4884010082363131,0.4866120517342525,"full frames, raw emb MiniBatchKMeans"
+kmeans_max_ari_oracle,oracle,50,184603,50,0.0,0.2442419566629299,0.4725672279319966,0.4710038311925524,"full frames, raw emb MiniBatchKMeans"
+kmeans_max_silhouette,unsupervised,190,184603,190,0.0,0.2216022415131913,0.56666528265967,0.562251164142081,"full frames, raw emb MiniBatchKMeans"
+hdbscan_umap_best_ari,density,50,21502,113,0.2966235699004744,0.0473277983623704,0.5485076393295631,0.5186215567411123,"max 250/label (~21.5k), UMAP-10 then HDBSCAN"

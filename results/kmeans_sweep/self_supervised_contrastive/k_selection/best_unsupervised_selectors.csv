@@ -1,0 +1,2 @@
+model,selector,kind,selected_k,ari_at_k,nmi_at_k,ami_at_k,silhouette_at_k,abs_k_minus_k_ari
+label_free,elbow_inertia,unsupervised,60,0.2387201898000036,0.4884010082363131,0.4866120517342525,0.1136552989482879,10

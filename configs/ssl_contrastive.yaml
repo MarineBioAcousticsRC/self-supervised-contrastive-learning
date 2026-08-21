@@ -1,0 +1,27 @@
+# Self-supervised contrastive finetuning (Table I).
+# CLI flags on scripts/ssl_contrastive_finetune.py mirror these values.
+# Add --supervised-contrastive for the label-informed negative-sampling control.
+
+pretrain_ckpt: /path/to/pretrained_animal2vec.pt
+manifest_dir: /path/to/nips4bplus/manifest
+train_subset: train_0
+label_csv_dir: /path/to/nips4bplus
+
+sample_rate: 24000
+label_csv_format: auto
+label_index_rate_hz: "44100"
+exclude_classes: "empty,unknown,silence,unk"
+
+batch_size: 8
+max_updates: 5000
+lr: 1.0e-5
+warmup_updates: 500
+margin: 0.2
+noise_negative_prob: 0.5
+average_top_k_layers: 12
+
+save_interval_updates: 1000
+log_interval: 50
+normalize: true
+freeze_feature_extractor: false
+# supervised_contrastive: false
