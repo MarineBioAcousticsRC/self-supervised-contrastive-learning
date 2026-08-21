@@ -169,4 +169,4 @@ NIPS4Bplus transcriptions: https://figshare.com/articles/dataset/Transcriptions_
 
 ## License
 
-MIT (see `LICENSE`). The `nn/` encoder is from animal2vec.
+MIT (see `LICENSE`).
