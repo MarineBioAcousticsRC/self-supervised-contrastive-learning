@@ -1,4 +1,4 @@
-# Self-supervised contrastive learning for bioacoustics
+# Contrastive self-supervised learning improves the ability to discriminate between animal vocalizations without requiring labeled training data
 
 Finetune a pretrained animal2vec encoder using only vocalization onset/offset
 (no species or call-type labels). Frame embeddings from the same vocalization
@@ -9,7 +9,8 @@ triplet-margin loss on cosine distance (Table I).
 Checkpoints (`.pt`) and frame embeddings (`.h5`) are not included. Paper
 figures are in `paper/figures/`.
 
-Run Python from this repository root so `import nn` resolves.
+Run all commands from this repository root (the folder that contains `nn/`
+and `scripts/`).
 
 ## Requirements
 
