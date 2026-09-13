@@ -91,6 +91,68 @@ def test_class_aware_negative_no_same_clip_other_vocal():
     print("OK test_class_aware_negative_no_same_clip_other_vocal")
 
 
+def _class_aware_coin_fixture():
+    # clip 0: class 1 + class 2 (same-clip other vocal must never be used)
+    # clip 1: class 1 (same class — must not be used as the vocal negative)
+    # clip 2: class 3 (different class — vocal branch)
+    vocal = [
+        [[10, 11, 12, 13], [20, 21, 22, 23]],
+        [[5, 6, 7, 8]],
+        [[30, 31, 32, 33]],
+    ]
+    classes = [[1, 2], [1], [3]]
+    non_vocal = [list(range(0, 5)), list(range(40, 50)), list(range(0, 4))]
+    return vocal, classes, non_vocal
+
+
+def test_class_aware_negative_forced_noise():
+    vocal, classes, non_vocal = _class_aware_coin_fixture()
+    rng = np.random.default_rng(0)
+    for _ in range(200):
+        neg_b, neg_frame, diff_cls, source = sample_class_aware_negative(
+            0, 0, 1, vocal, classes, non_vocal, rng, noise_prob=1.0
+        )
+        assert source == "noise_same_clip"
+        assert diff_cls is False
+        assert neg_b == 0
+        assert neg_frame in non_vocal[0]
+    print("OK test_class_aware_negative_forced_noise")
+
+
+def test_class_aware_negative_forced_diff_class():
+    vocal, classes, non_vocal = _class_aware_coin_fixture()
+    rng = np.random.default_rng(0)
+    for _ in range(200):
+        neg_b, neg_frame, diff_cls, source = sample_class_aware_negative(
+            0, 0, 1, vocal, classes, non_vocal, rng, noise_prob=0.0
+        )
+        assert source == "diff_class_vocal"
+        assert diff_cls is True
+        assert neg_b == 2
+        assert neg_frame in vocal[2][0]
+    print("OK test_class_aware_negative_forced_diff_class")
+
+
+def test_class_aware_negative_coin_flip_mix():
+    vocal, classes, non_vocal = _class_aware_coin_fixture()
+    rng = np.random.default_rng(0)
+    sources = []
+    for _ in range(400):
+        neg_b, neg_frame, diff_cls, source = sample_class_aware_negative(
+            0, 0, 1, vocal, classes, non_vocal, rng, noise_prob=0.5
+        )
+        sources.append(source)
+        assert source in {"noise_same_clip", "diff_class_vocal"}
+        assert neg_frame not in set(vocal[0][0])
+        assert neg_frame not in set(vocal[0][1])
+        if source == "noise_same_clip":
+            assert neg_b == 0 and neg_frame in non_vocal[0] and diff_cls is False
+        else:
+            assert neg_b == 2 and neg_frame in vocal[2][0] and diff_cls is True
+    assert "noise_same_clip" in sources and "diff_class_vocal" in sources
+    print("OK test_class_aware_negative_coin_flip_mix")
+
+
 def test_contrastive_loss():
     b, t, d = 4, 50, 32
     s = torch.randn(b, t, d, requires_grad=True)
@@ -133,6 +195,8 @@ def test_class_aware_contrastive_loss():
     assert stats.get("pos_same_class", 0) == 0
     assert stats.get("pos_same_span_fallback", 0) == 12
     assert stats.get("neg_diff_class", 0) > 0
+    assert stats.get("neg_by_source", {}).get("noise_same_clip", 0) > 0
+    assert stats.get("neg_by_source", {}).get("diff_class_vocal", 0) > 0
     assert "per_class_sampling" in stats
     assert loss.requires_grad
     loss.backward()
@@ -144,6 +208,9 @@ if __name__ == "__main__":
     test_csv_indices()
     test_sample_negative_frame_no_same_clip_other_vocal()
     test_class_aware_negative_no_same_clip_other_vocal()
+    test_class_aware_negative_forced_noise()
+    test_class_aware_negative_forced_diff_class()
+    test_class_aware_negative_coin_flip_mix()
     test_contrastive_loss()
     test_class_aware_contrastive_loss()
     print("All smoke tests passed.")

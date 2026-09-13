@@ -8,8 +8,8 @@
 # sampled in embedding space.
 # Loss = triplet margin on cosine distance:
 #   - every frame in each vocalization span is an anchor; positive from same span
-#   - negative (self-supervised): non-vocal same recording or vocal from another recording
-#   - negative (supervised contrastive): different-class vocal from another recording
+#   - negative (self-supervised): 50-50 non-vocal same recording vs vocal from another recording
+#   - negative (supervised contrastive): same 50-50 coin; other-file vocals must be a different class
 
 import logging
 import os
@@ -823,24 +823,55 @@ def sample_class_aware_negative(
 ) -> Tuple[int, int, bool, str]:
     """Return (batch_idx, frame_idx, used_diff_class, neg_source).
 
-    Prefer a vocal frame with class_key != anchor_class from a different clip in the batch.
-    Fallback: sample_negative_frame (noise same clip / other file in batch).
+    Same recipe as sample_negative_frame (50-50 same-clip noise vs other-file vocal).
+    The only difference: the other-file branch is restricted to a different class.
     Same-clip other-vocalization negatives are excluded.
     """
-    diff_spans = [
-        (bb, si)
-        for bb in range(len(vocal_spans_enc))
-        for si, cls in enumerate(vocal_span_classes[bb])
-        if bb != batch_idx and cls != anchor_class and vocal_spans_enc[bb][si]
-    ]
-    if diff_spans:
-        bb, si = diff_spans[int(rng.integers(0, len(diff_spans)))]
+    b = batch_idx
+    use_noise = rng.random() < noise_prob
+
+    other_diff_clips: List[Tuple[int, List[int]]] = []
+    for bb, spans in enumerate(vocal_spans_enc):
+        if bb == b or not spans:
+            continue
+        class_row = vocal_span_classes[bb] if bb < len(vocal_span_classes) else []
+        span_idxs = [
+            si
+            for si, span in enumerate(spans)
+            if span and si < len(class_row) and class_row[si] != anchor_class
+        ]
+        if span_idxs:
+            other_diff_clips.append((bb, span_idxs))
+
+    def pick_diff_class() -> Tuple[int, int, bool, str]:
+        bb, span_idxs = other_diff_clips[int(rng.integers(0, len(other_diff_clips)))]
+        si = int(span_idxs[int(rng.integers(0, len(span_idxs)))])
         return bb, int(rng.choice(vocal_spans_enc[bb][si])), True, "diff_class_vocal"
 
-    neg_b, frame, source = sample_negative_frame(
-        batch_idx, anchor_span_idx, vocal_spans_enc, non_vocal_enc, rng, noise_prob=noise_prob
-    )
-    return neg_b, frame, False, source
+    def pick_noise() -> Tuple[int, int, bool, str]:
+        return b, int(rng.choice(non_vocal_enc[b])), False, "noise_same_clip"
+
+    if use_noise and non_vocal_enc[b]:
+        return pick_noise()
+    if other_diff_clips:
+        return pick_diff_class()
+    if non_vocal_enc[b]:
+        return pick_noise()
+    if other_diff_clips:
+        return pick_diff_class()
+
+    other_batches = [j for j in range(len(vocal_spans_enc)) if j != b and vocal_spans_enc[j]]
+    if other_batches:
+        j = int(rng.choice(other_batches))
+        si = int(rng.integers(0, len(vocal_spans_enc[j])))
+        return j, int(rng.choice(vocal_spans_enc[j][si])), False, "other_file"
+
+    anchor_span = set(vocal_spans_enc[b][anchor_span_idx])
+    t_enc = max(anchor_span) + 1 if anchor_span else 1
+    candidates = [i for i in range(t_enc) if i not in anchor_span]
+    if candidates:
+        return b, int(rng.choice(candidates)), False, "fallback_non_anchor"
+    return b, int(rng.choice(list(anchor_span))), False, "fallback_non_anchor"
 
 
 def compute_contrastive_loss(
@@ -868,8 +899,8 @@ def compute_contrastive_loss(
     non_vocal_enc : List[List[int]]
         Per-clip encoder frames outside any vocal span (background/silence).
     class_aware : bool
-        If True, negatives prefer a different-class vocal from another file in the batch
-        (never another vocalization in the same clip). Positives stay same-span.
+        If True, same 50-50 noise/other-file coin as SSL; other-file vocals must be a
+        different class (never another vocalization in the same clip). Positives stay same-span.
 
     Triplet construction
     --------------------
@@ -878,7 +909,8 @@ def compute_contrastive_loss(
             for each encoder frame e_idx in that span:
                 anchor   = student_emb[b, e_idx]
                 positive = another frame from the same vocalization
-                negative = supervised contrastive: different-class vocal from another recording;
+                negative = supervised contrastive: same 50-50 coin as SSL, other-file
+                           vocals restricted to a different class;
                            else non-vocal same clip or vocal from another file
                 collect (anchor, positive, negative)
 

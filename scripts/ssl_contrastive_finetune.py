@@ -75,7 +75,7 @@ def parse_args():
     p.add_argument(
         "--supervised-contrastive",
         action="store_true",
-        help="Supervised contrastive control: same-span positives; class labels used only to reject same-class negatives from other recordings",
+        help="Supervised contrastive control: same-span positives; same 50-50 noise coin as SSL; class labels used only to pick a different-class vocal from another recording",
     )
     return p.parse_args()
 
@@ -311,7 +311,11 @@ def train(args):
             "same_clip_vocal_negative": False,
             "supervised_contrastive": args.supervised_contrastive,
             "positives": "same_vocalization_span",
-            "negatives": "diff_class_other_recording" if args.supervised_contrastive else "noise_or_other_recording",
+            "negatives": (
+                "noise_or_diff_class_other_recording"
+                if args.supervised_contrastive
+                else "noise_or_other_recording"
+            ),
         },
         "runtime": {
             "total_wall_seconds": total_wall_s,
